@@ -1,13 +1,11 @@
 <?php
-include_once(__DIR__."./lib/udara.php");
-include_once(__DIR__."./lib/DataFormat.php");
-header('Access-Control-Allow-Origin:*');
+include_once(__DIR__."/lib/udara.php");
+include_once(__DIR__."/lib/DataFormat.php");
 $sensor = new Sensor();
 $format=new DataFormat();
 
 $getAll=$sensor->getAll();
 $resultAll= isset($getAll['data']) ? $getAll['data'] : [];
-
 
 $getFilter=$sensor->getAllFilter();
 $resultFilter = isset($getFilter['data']) ? $getFilter['data'] : [];
@@ -51,11 +49,7 @@ echo "Selamat Siang, Semangat Menjalankan Aktifitas !";}
 else if (($a>15) && ($a<=18)){
 echo "Selamat Sore";}
 else { echo ", <b> Selamat Malam </b> </p>";}
-?>  
-
-
-
-		
+?>  	
 	<div class="col-sm-8 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
 		<div class="row">
 			<ol class="breadcrumb">
