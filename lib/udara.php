@@ -133,7 +133,7 @@ class Sensor{
         http_response_code(200);
         $data = array();
         while ($row = $hasil->fetch_assoc()){
-            $data[]=$row;
+            $data=$row;
         }
         if(count($data)==0)
             return array("msg"=>"Data Tidak Ada", "data"=>array());

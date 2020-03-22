@@ -18,12 +18,12 @@ $resultAll= isset($getAll['data']) ? $getAll['data'] : [];
 	<link href="css/datepicker3.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	
-	<!--Custom Font-->
+	<Custom Fon>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-	<!--[if lt IE 9]>
+	<[if lt IE 9]>
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
-	<![endif]-->
+	<[endif]
 </head>
 <body>
 	<?php include "master/header.php"?>
@@ -48,19 +48,8 @@ echo "Selamat Sore";}
 else { echo ", <b> Selamat Malam </b> </p>";}
 ?> 
 
-<?php
-		$data_humidity = array();
-		$data_asap = array();
-		foreach($resultAll as $result){
-			array_push($data_humidity, array(strtotime($result['date']) * 1000,(float) $result['humidity']));
-			array_push($data_asap, array(strtotime($result['date']) * 1000,(float) $result['gas_dan_asap']));
-			
 
-		}
-		// die (json_encode($data_asap));
-		?>
-
-	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+	<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">	
 		<div class="row">
 			<div class="col-md-6">
 				<div class="panel panel-default">
@@ -68,14 +57,15 @@ else { echo ", <b> Selamat Malam </b> </p>";}
 						Suhu (°C)
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
 						<div class="panel-body">
-						<!-- <div class="canvas-wrapper">
-							<canvas class="chart" id="line-chart" ></canvas>
-						</div> -->
+						<div class="canvas-wrapper">
+							<canvas class="chart1" id="line-chart1" ></canvas>
+						</div>
 						<div id="container1"></div>
 					</div>
 				</div>
 			</div>
-
+			
+			
 			<div class="row">
 			<div class="col-md-6">
 				<div class="panel panel-default">
@@ -83,31 +73,48 @@ else { echo ", <b> Selamat Malam </b> </p>";}
 						Kelembapan Udara (°C)
 						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
 					<div class="panel-body">
-						<!-- <div class="canvas-wrapper">
-							<canvas class="chart" id="line-chart" ></canvas>
-						</div> -->
-						<!-- <div id="container1"></div> -->
+						<div class="canvas-wrapper">
+							<canvas class="chart2" id="line-chart2" ></canvas>
+						</div> 
+						<div id="container2"></div>
+				</div>
+				</div>
+				</div>
+		<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Gas Amonia (Ppm)
+						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas class="chart3" id="line-chart3" ></canvas>
+						</div> 
+						<div id="container3"></div>
+					</div>
+					</div>
+					</div>
+			
+			<div class="row">
+			<div class="col-md-6">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Gas LPG (Ppm)
+						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+						<div class="canvas-wrapper">
+							<canvas class="chart3" id="line-chart3" ></canvas>
+						</div> 
+						<div id="container3"></div>
 					</div>
 				</div>
-			</div>
-		
-		
-
-
-
-
-
-
-
-
 		</div>
-	</div>
+		</div>
+		</div>
 			<?php include "master/footer.php"?>
-		</div><!--/.row-->
-	</div>	<!--/.main-->
 	  
 
-	  
+
 
 	<script src="js/jquery-1.11.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -117,62 +124,58 @@ else { echo ", <b> Selamat Malam </b> </p>";}
 	<script src="js/easypiechart-data.js"></script>
 	<script src="js/bootstrap-datepicker.js"></script>
 	<script src="js/custom.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/modules/data.js"></script>
-	<script type="text/javascript" src="js/modules/exporting.js"></script>
-	<script type="text/javascript" src="js/highcharts.js"></script>
-	<script type="text/javascript" src="js/bootstrap.js"></script>
-	<script type="text/javascript" src="js/Chart.js"></script>
-	<script type="text/javascript" src="js/Chart.bundle.js"></script>
-
-
-		<script>
-					var chart = new Highcharts.Chart({
-						chart: {
-							renderTo: 'container1'
-						},
-						title: {
-								text: 'Grafik Data Suhu'
-							},
-		
-						xAxis: {
-							title: {
-							enabled: true,
-							// text: 'Hours of the Day'
-							},
-							type: 'datetime',
-							showFirstLabel:true,
-							showLastLabel:true,
-							// min:Date.UTC(2020,1,25),
-							// pointInterval: 900 * 1000,
-							pointStart:Date.UTC(2020,1,25,),
-							dateTimeLabelFormats : {
-								hour: '%I %p',
-								minute: '%I:%M %p'
-								}
-						},
-						series: [{
-							
-							
-						 	// pointStart:Date.UTC(2020,1,25,), 
-							data: 
-								// <?php echo json_encode($data_asap);?>
-						}]
-				});
-				</script>
 	<script>
+	
 	window.onload = function () {
-	var chart1 = document.getElementById("line-chart").getContext("2d");
+	
+	
+	var chart1 = document.getElementById("line-chart1").getContext("2d");
 	window.myLine = new Chart(chart1).Line(lineChartData, {
 	responsive: true,
 	scaleLineColor: "rgba(0,0,0,.2)",
 	scaleGridLineColor: "rgba(0,0,0,.05)",
-	scaleFontColor: "#c5c7cc", 
-	data : <?php echo json_encode($data_humidity);?>
+	scaleFontColor: "#c5c7cc"
 	});
-
-
-
+	
+	
+	var chart2 = document.getElementById("line-chart2").getContext("2d");
+	window.myLine = new Chart(chart2).Line(lineChartData, {
+	responsive: true,
+	scaleLineColor: "rgba(0,0,0,.2)",
+	scaleGridLineColor: "rgba(0,0,0,.05)",
+	scaleFontColor: "#c5c7cc"
+	});
+	
+	
+	var chart3 = document.getElementById("line-chart3").getContext("2d");
+	window.myLine = new Chart(chart3).Line(LineChartData, {
+	responsive: true,
+	scaleLineColor: "rgba(0,0,0,.2)",
+	scaleGridLineColor: "rgba(0,0,0,.05)",
+	scaleFontColor: "#c5c7cc"
+	});
+	
+	
+	var chart4 = document.getElementById("pie-chart").getContext("2d");
+	window.myPie = new Chart(chart4).Pie(pieData, {
+	responsive: true,
+	segmentShowStroke: false
+	});
+	
+	
+	var chart5 = document.getElementById("radar-chart").getContext("2d");
+	window.myRadarChart = new Chart(chart5).Radar(radarData, {
+	responsive: true,
+	scaleLineColor: "rgba(0,0,0,.05)",
+	angleLineColor: "rgba(0,0,0,.2)"
+	});
+	
+	
+	var chart6 = document.getElementById("polar-area-chart").getContext("2d");
+	window.myPolarAreaChart = new Chart(chart6).PolarArea(polarData, {
+	responsive: true,
+	scaleLineColor: "rgba(0,0,0,.2)",
+	segmentShowStroke: false
 	});
 };
 	</script>	
