@@ -1,6 +1,6 @@
 <?php
-include_once(__DIR__."./lib/udara.php");
-include_once(__DIR__."./lib/DataFormat.php");
+include_once(__DIR__."/lib/udara.php");
+include_once(__DIR__."/lib/DataFormat.php");
 header('Access-Control-Allow-Origin:*');
 $sensor = new Sensor();
 $format=new DataFormat();
