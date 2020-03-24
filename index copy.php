@@ -5,10 +5,18 @@ $sensor = new Sensor();
 $format=new DataFormat();
 
 $getAll=$sensor->getAll();
-$resultAll= isset($getAll['data']) ? $getAll['data'] : [];
+$resultSemua= isset($getAll['data']) ? $getAll['data'] : [];
 
 $getFilter=$sensor->getAllFilter();
 $resultFilter = isset($getFilter['data']) ? $getFilter['data'] : [];
+
+
+
+foreach($resultAll as $result){
+	$result['humidity'];
+	
+}
+// echo $result['humidity'];
 
 
 ?>
@@ -77,7 +85,7 @@ else { echo ", <b> Selamat Malam </b> </p>";}
 			</div>
 </div>
 		<?php
-				foreach($resultFilter as $result){
+				foreach($resultSemua as $result){
 					$result['humidity'];
 					$result['temperature'];
 					$result['gas_dan_asap'];
@@ -88,7 +96,9 @@ else { echo ", <b> Selamat Malam </b> </p>";}
 					$result['date'];
 					
 				}
+				echo $result['humidity'];
 			?>
+			
 
 
 			

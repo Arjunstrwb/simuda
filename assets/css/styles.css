@@ -1,5 +1,5 @@
 body {
-  background: #f1f4f7;
+  background: #C0C0C0;
   padding-top: 60px;
   font-size: 14px;
   color: #444444;
@@ -45,6 +45,12 @@ h3, h4 {
 
 .color-red {
   color: #f9243f; }
+
+.color-gray {
+  color: #808080;}
+
+.color-lime {
+  color: #00FF00;}
 
 .no-padding {
   padding: 0;
@@ -911,6 +917,9 @@ h1.page-header {
 
 #easypiechart-red .percent {
   color: #ef4040; }
+
+#easypiechart-lime .percent {
+  color: #00FF00;}
 
 #calendar, .datepicker-inline {
   width: 100%; }

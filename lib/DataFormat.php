@@ -31,6 +31,8 @@ class DataFormat{
 		return json_encode($data);
 	}
 
+	
+
 	function asJSONpH($data){
 		$json_data = json_encode($data);
 		file_put_contents('../.json/ph.json', $json_data);
