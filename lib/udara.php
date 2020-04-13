@@ -20,7 +20,7 @@ class Sensor{
 
     function setValue($humidity, $temperature, $gas_dan_asap, $co, $amonia, $hidrogen_sulfida, $konsentrasi_debu){
         // $this();
-        $this->id = $id;
+        //$this->id = $id;
         $this->humidity = $humidity;
         $this->temperature= $temperature;
         $this->gas_dan_asap = $gas_dan_asap;

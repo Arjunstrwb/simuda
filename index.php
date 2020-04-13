@@ -85,7 +85,7 @@ else { echo ", <b> Selamat Malam </b> </p>";}
 					$result['amonia'];
 					$result['hidrogen_sulfida'];
 					$result['konsentrasi_debu'];
-					$result['date'];
+					$result['waktu'];
 					
 				}
 			?>
